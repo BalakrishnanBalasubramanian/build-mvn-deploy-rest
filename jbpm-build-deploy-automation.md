@@ -12,7 +12,7 @@
     </distributionManagement>
 ```   
 
-3. Add the following configuration in settings.xml (_located at ~/.m2 of the host files system in the build server) to specify the connection details to the repository server (Business Central) that contains the repository. 
+3. Add the following configuration in settings.xml (_located at ~/.m2 of the host files system in the build server_) to specify the connection details to the repository server (Business Central) that hosts the Maven repository. 
 
 ```   
   <server>  
@@ -29,7 +29,7 @@
       </configuration>  
     </server>
  ```   
- 4. Finally run `mvn deploy` and the JAR file will get uploaded.
+ 4. Finally run `mvn deploy` from the location at which the project has been checked out and the JAR file will get uploaded into the Maven repository.
  
  5. Deploy the JAR installed into BC in step 4, using the below listed controller REST API.
  
