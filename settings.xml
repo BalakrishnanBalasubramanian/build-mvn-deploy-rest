@@ -1,3 +1,5 @@
+<!-- Updated settings to auto download the required dependencies (JARs and plugins) from public repos -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
