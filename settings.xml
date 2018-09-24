@@ -128,9 +128,9 @@ under the License.
     </server>
     -->
 	<server>
-      <id>kieserver-repo</id>
+      <id>maven-build-repo</id>
       <username>pamAdmin</username>
-      <password>P@ssw0rd</password>
+      <password>********</password>
       <configuration>
         <wagonProvider>httpclient</wagonProvider>
         <httpConfiguration>
