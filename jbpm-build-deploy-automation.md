@@ -1,5 +1,5 @@
 1. `git clone` the latest version of the jBPM project to the local file system in the build server
-2. Add the following lines to project's POM.xml to speciy the details of the Maven repository into which the project's JAR needs to be published. 
+2. Add the following lines to project's POM.xml to specify the details of the Maven repository into which the project's JAR needs to be published. 
 
 ```
  <distributionManagement>  
@@ -30,3 +30,44 @@
     </server>
  ```   
  4. Finally run `mvn deploy` and the JAR file will get uploaded.
+ 
+ 5. Deploy the JAR installed into BC in step 4, using the below listed controller REST API.
+ 
+ ```
+ http://localhost:8080/business-central/rest/controller/management/servers/kieserver/containers/citi-test_1.0.0
+
+##Payload
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<container-spec-details>
+    <container-id>citi-test_1.0.0</container-id>
+    <container-name>citi-test</container-name>
+    <server-template-key>
+        <server-id>kieserver</server-id>
+        <server-name>kieserver</server-name>
+    </server-template-key>
+    <release-id>
+        <artifact-id>citi-test</artifact-id>
+        <group-id>com.bala</group-id>
+        <version>1.0.0</version>
+    </release-id>
+    <configs>
+        <entry>
+            <key>RULE</key>
+            <value xsi:type="ruleConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <scannerStatus>STOPPED</scannerStatus>
+            </value>
+        </entry>
+        <entry>
+            <key>PROCESS</key>
+            <value xsi:type="processConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <runtimeStrategy>PER_PROCESS_INSTANCE</runtimeStrategy>
+                <kbase></kbase>
+                <ksession></ksession>
+                <mergeMode>MERGE_COLLECTIONS</mergeMode>
+            </value>
+        </entry>
+    </configs>
+    <status>STARTED</status>
+</container-spec-details>
+```
